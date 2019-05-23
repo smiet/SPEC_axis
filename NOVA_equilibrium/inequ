@@ -1,0 +1,42 @@
+                       tok q solver
+c00       irst1     irst2     itdbin    itrbin    ipstbin
+00        0.0       1.0       0.0       1.0       1.0
+c01       isw1      isym      nopcen    iderr     ifunc      curmp
+01        0.0       1.0       1.0       0.0       1.0        0.0
+c02       nthe      npsi      rjac      mjac      bzero               omf
+02        101.      111.      1.0       -2.0      1.0                 -1.
+c03       omega     facimp    nimax     numit     maxout    nstop     tsf
+03        0.70      .00000001 300.      800.      0.0                 .400
+c04       alpha     beta      p0        alpha_0   isw2      aisw2     chi2
+04        2.0       1.0       0.020     .00000001 2.0       7.91      .400
+c05       xzero      xguess   aguess    eps       eguess    rcoil     dguess
+05        3.0       3.08      1.0       1.00      1.0       1.0       0.0
+c06       alamda    gamma     ncoils    chi1      vffac     qscale    dguessb
+06        2.0       .01       4.0       0.0       1.0       1.0
+c07       ishift    delta     epsb      psisov    cfrac     alf       bta2
+07        0.0       0.0       0.0       0.0       1.0
+c08       nwall     walcnt    walrad    mthin     nsrfin    isph      inest
+08        0.0       0.0       0.0       128.      97.       38.0      1.0      
+c12       q0        qlim      qpof      qdp0      iqfunc    qalph     iprnt
+c12        1.020     3.2       2.0       3.5322    2.0       0.2       1.0
+12        0.66000   3.330     2.0       2.67000   2.0       0.0       1.0
+c13       zkay      dalta     epslon    itooff    jorgn     gwall     gart 
+13        0.0       0.000     0.0       02.00     5.0       1.0       0.0
+99
+
+ibound = 3 (first digit in isph)
+
+isw2 = 2.......aisw2 is total poloidal flux
+
+ifunc=1
+p2 = p0*(1.0 - psinorm**beta)**alpha
+
+iqfunc = 2  
+iqqq = 8  (second digit in isph)
+qfa = q0                             for arg < qalph
+    = q0 + qdp0*(arg - qalph)**qpof   otherwise
+
+Initially have inest=0, itooff=11
+After first run in series, copy eqb1 to eqxz, set inest=1, itooff=2
+
+Files profiles-g and profiles-p can be read into M3D-C1 with inumgs=1 option

@@ -1,0 +1,25 @@
+Adelle, 
+
+The files profiles-g and profiles-p contain information on the 
+qsolv equilibrium. 
+I have labelled the columns, and provided a python program that 
+reads one of the files. 
+You could easily adapt this, or copy-paste the content into ipython, 
+and then you have the variables Psi, p and ppxx to work with. 
+
+Further information: 
+
+x-location of the magnetic axis: 
+
+    3.1798E+00
+
+Magnetic field strength: 
+
+    1 (Tesla)
+
+q-profile: 
+    0.6600 + 2.670*Psi**2
+
+Boundary geometry: 
+Toroidal, circular cross-section with minor radius 1, major radius 3 (meters)
+
