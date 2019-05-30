@@ -85,7 +85,7 @@
 /
 &diagnosticslist
  odetol =   1.00000e-06 ,
- nppts =         0 ,
+ nppts =         400 ,
  lhevalues = F ,
  lhevectors = F ,
  lperturbed =            0 ,
