@@ -1,0 +1,18 @@
+!!!! Comments about SPEC !!!!
+
+The SPEC solution is controlled largely by the flags LBeltrami and LConstraint.
+
+LBeltrami flag gives the numercial method which SPEC uses to solve for the Beltrami field in each region.
+Some (as of yet) undocumented perculiarities;
+
+1.) If LBeltrami=2 (Newton Method) then SPEC overwrites user input for LConstraint and sets LConstraint=2 (conserved helicity). This can be seen in the .sp.end ouput and presumably means the system is solved according to LConstaint=2 (but this should be verified). Why this happens is probably related to the implementation of the Newton Method. Need to look through the source code.
+
+This may be problematic for some studies because the Newton Method finds extrema whereas I believe other methods (SQP and linear) will only find minima (in principle). 
+
+!!!! Files in this directory !!!!
+
+mtor270519: 2-volume test case (pciked some arbitrary values for pressure and q). Solution doesn't seem correct; not converged.
+
+mtor010619: Iteration of mtor270519 to test different solutions settings and attempt get converged solution.
+	    Using LBeltrami=4 (linear method) and LConstraint=1 (rotational transform constraint). With 0 pressure (pscale=0).
+
