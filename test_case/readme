@@ -1,3 +1,4 @@
+=============================
 !!!! Comments about SPEC !!!!
 
 The SPEC solution is controlled largely by the flags LBeltrami and LConstraint.
@@ -9,6 +10,7 @@ Some (as of yet) undocumented perculiarities;
 
 This may be problematic for some studies because the Newton Method finds extrema whereas I believe other methods (SQP and linear) will only find minima (in principle). 
 
+=================================
 !!!! Files in this directory !!!!
 
 mtor270519: 2-volume test case (picked some arbitrary values for pressure and q). Solution doesn't seem correct; not converged.
@@ -22,6 +24,20 @@ mtor010619b: Correctly set up prescription of the interface positions.
 	     In this case, this is specified by a list at the end of the .sp input file.
 	     By checking the .sp.end output we can verify that SPEC is indeed adjusting the position of the interfaces to find the minimum energy solution.
 
+N2_020619a,b: 2-volume unperturbed calculation using NOVA equilibrium profiles.
+	      Tried calculating R-coordinate of interface using formula for LInitialize=1. 
+	      Since toroidal fluxes are given, may not need to use LIinitialize=0? (Could possibly just use flux co-ordinates).
+	      Between a and b some parameters changed to improve convergence.
+	      Poicare section and q-profile can be found in .jpeg file.
+
+N2_020619c: Same as b but tested a small m=3, n=3 boundary perturbation.
+	    Poincare section and q-profile can be found in .jpeg file.
+
+N4_020619a: 4-volume unperturbed calculation using NOVA equilibrium profiles.
+	    Interface geometry specified as N2 cases.
+	    Solution not converged yet, need to work on this.
+
+================================================
 !!!! Prescribing interface geometry in SPEC !!!!
 
 As a supplement to the online documentation, here is how the SPEC interface geometry is specified:
