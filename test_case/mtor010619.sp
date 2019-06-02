@@ -8,8 +8,8 @@
  gamma =   0.000000000000000e+00 ,
  nvol =                       2 ,
  nfp =                       1 ,
- mpol =                       1 ,
- ntor =                       0 , !changed this;
+ mpol =                       4 ,
+ ntor =                       4 , !changed this;
  lconstraint =                       1 ,
  pscale =   0.000000000000000e+00 ,
  ladiabatic =                       0 ,
@@ -31,7 +31,7 @@
   rp       =                       0                      0
   rq       =                       0                      0
  oita      =    		   0			  1		1.5
- Lrad      =                       6
+ Lrad      =                       6 			  6
  Rac	   =	1 !magnetic axis;
  Zas 	   =	0
  Ras	   =    0
@@ -42,7 +42,7 @@
 ! RBC(3,2) = 0.000			ZBS(3,2) = 0 !changed this, no perturbation;
 /
 &numericlist
- linitialize =            1, !Was 1
+ linitialize =            0, !Was 1
  lzerovac =            0 ,
  ndiscrete =            2 , !Grid resolution
  nquad =           -1 ,
@@ -98,6 +98,5 @@
 &screenlist
  WPP00AA = T ,
 /
-! Providing interface geometry
-!0 0 	1 	 0 	0 	0 	1	 0	0	0
-!1 0 	0.1	 -0.1   0 	0 	0.5 	-0.5 	0 	0
+0 0 	1.0000000000e+00 	 0.000000000e+00 	0.000000000000e+00 	0.000000000000e+00 	1.0000000000e+00	 0.0000000000000e+00	0.000000000000e+00	0.000000000000e+00
+1 0 	3.0000000000000e-01	 -3.0000000000000e-01   0.000000000000e+00 	0.000000000000e+00 	5.0000000000e-01 	-5.0000000000000e-01 	0.000000000000e+00 	0.000000000000e+00

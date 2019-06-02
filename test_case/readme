@@ -11,8 +11,53 @@ This may be problematic for some studies because the Newton Method finds extrema
 
 !!!! Files in this directory !!!!
 
-mtor270519: 2-volume test case (pciked some arbitrary values for pressure and q). Solution doesn't seem correct; not converged.
+mtor270519: 2-volume test case (picked some arbitrary values for pressure and q). Solution doesn't seem correct; not converged.
 
-mtor010619: Iteration of mtor270519 to test different solutions settings and attempt get converged solution.
-	    Using LBeltrami=4 (linear method) and LConstraint=1 (rotational transform constraint). With 0 pressure (pscale=0).
+mtor010619: Iteration of mtor270519 to test different solution settings and attempt get converged solution.
+	    Using LBeltrami=4 (linear method) and LConstraint=1 (rotational transform constraint).
+	    With 0 pressure (pscale=0).
+
+mtor010619b: Correctly set up prescription of the interface positions.
+	     Note that specifying the interface position is only necessary if Linitialize=-1 or 0.
+	     In this case, this is specified by a list at the end of the .sp input file.
+	     By checking the .sp.end output we can verify that SPEC is indeed adjusting the position of the interfaces to find the minimum energy solution.
+
+!!!! Prescribing interface geometry in SPEC !!!!
+
+As a supplement to the online documentation, here is how the SPEC interface geometry is specified:
+
+User input of interface geometry is given at the end of .sp, after:
+
+&screenlist
+.
+.
+.
+/
+[INTERFACE GEOMETRY]
+
+The geometry is given in column and row format, without any headers.
+The corresponding entries are explained in the following table:
+
+For l=1,...,N interfaces:
+
+m | n | R(m,n) of l=1 interface | Z(m,n) of l=1 interface | Zero | Zero | ...... | R(m,n) of l=N interface (outer boundary) | Z(m,n) of l=N interface (outer boundary)| Zero | Zero
+===================================================================================================================================================================================
+0 | 0 |    Rac                  |      0                  |   0  |  0   | ...... |      Rbc(0,0)                            |     0                                   |   0  |  0  
+===================================================================================================================================================================================
+1 | 0 |    R(1,0), (l=1)        |      Z(1,0), (l=1)      |   0  |  0   | ...... |      Rbc(1,0)                            |     Zbs(1,0)                            |   0  |  0  
+===================================================================================================================================================================================
+.
+.
+.
+up to arbitrary m and n as required. 
+
+
+* Here, the components of R and Z are like x and y co-ordinates for a closed curve such that R=major radiaus and Z=minor radius. E.g. a circle centred at Rbc(0,0) would have radius R(1,0)=Z(1,0).
+Additional components of the Fourier expansion may be given as required. 
+
+
+* Note that compared to specification of the Fourier components in &physicslist the order of m and n is reversed. E.g. Rbc(n,m) in &physicslist becomes Rbc(m,n) in interface geometry.
+
+
+
 
